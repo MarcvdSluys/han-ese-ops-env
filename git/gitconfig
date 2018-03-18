@@ -1,0 +1,30 @@
+[color]
+        branch = auto
+        diff = auto
+        status = always
+
+[color "branch"]
+        current = yellow reverse
+        local = yellow
+        remote = green
+	upstream = green
+
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+
+[alias]
+        ci = commit
+        st = status
+        co = checkout
+	# Note: !git --no-pager  specifies the --no-pager option for git (not the subcommand, e.g. branch)
+        br = !git --no-pager branch -vv
+	llog = log --date=format:'%a %Y-%m-%d %H:%M:%S' --stat --graph --pretty=format:\"*******************************************************************************%n%n%C(red reverse)%d%Creset %Cgreen%h%Creset %C(yellow)(%ad)%Creset - %C(yellow)%ar %C(cyan)by %an%Creset%n%n%n%C(cyan)Message:%Creset%n%B%n%n%C(cyan)Changes:%Creset\"
+	tree = log --graph --pretty=\"format:%C(yellow)%ad%Creset - %C(cyan)%an%Creset - %C(green)%h%Creset%C(red reverse)%d%Creset - %s %C(yellow bold)(%ar)%Creset\" --abbrev-commit --all --date=format:'%Y-%m-%d %H:%M:%S'

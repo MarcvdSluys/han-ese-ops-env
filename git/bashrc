@@ -1,0 +1,6 @@
+# Git aliases:
+alias gitdiff='git diff --color=always -w -U1'
+alias gitst='git br && echo && git status -sbv -uno && echo'
+alias gitlog='git llog'
+alias gittree='git tree'
+alias gitpush='git push -v'
