@@ -1,0 +1,47 @@
+# .bashrc is only read by a shell that's both interactive and non-login (e.g. when
+# starting a terminal from X).  See https://stackoverflow.com/a/415444/1386750
+
+# Coloured command prompt:
+export PS1="[\[\033[1;31m\]\u\[\033[0m\]@\[\033[1;34m\]\h\[\033[0m\] \W]\$ "       # Normal user
+# export PS1="[\[\033[1;41m\]\u\[\033[0;1;7m\]@\[\033[0;1;44m\]\h\[\033[0m\] \W]# "  # Root
+
+# Favourite editor and pager:
+export EDITOR='emacs'
+export PAGER='less'
+
+# History control:
+export HISTCONTROL="ignoreboth"   # Ignore repeat commands, commands starting with space
+export HISTSIZE=10000             # Make a history file of 10k lines, rather than 500
+export HISTFILESIZE=100000        # Make a history file of 100k lines, rather than 500
+shopt -s histappend               # Makes bash append to history rather than overwrite
+
+# Shell options:
+shopt -s cdspell                  # Correct minor typos in directory names on cd command
+shopt -s dirspell                 # Correct minor typos in dir names on tab completion
+shopt -s checkjobs                # Do not exit if shell has running/suspended jobs
+
+# Colour in man pages (when using less as a pager - see man termcap):
+export LESS_TERMCAP_mb=$'\E[01;34m'  # Blinking -> bold blue
+export LESS_TERMCAP_md=$'\E[01;34m'  # Bold (section names, cl options) -> bold blue
+export LESS_TERMCAP_me=$'\E[0m'      # End bold/blinking
+export LESS_TERMCAP_so=$'\E[01;44m'  # Standout mode - pager -> bold white on blue
+export LESS_TERMCAP_se=$'\E[0m'      # End standout
+export LESS_TERMCAP_us=$'\E[01;31m'  # Underline - variables -> bold red
+export LESS_TERMCAP_ue=$'\E[0m'      # End underline
+export GROFF_NO_SGR=1
+
+# My aliases for frequently used commands:
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -ip'
+alias ls='ls --color=auto'
+alias lls='ls -lGh'
+alias lo='exit'
+alias less='less -Si'
+alias du='du -h'
+alias ssh='ssh -Y'
+# etc...
+
+# Lazy cd'ing:
+alias ops='cd ~/work/HAN/Teaching/OPS'
+# ... and many, many more...

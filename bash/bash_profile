@@ -1,0 +1,12 @@
+# This file is sourced by bash for login shells, e.g. when logging into X, logging into a
+#   text console or login in using e.g. ssh.  This file is NOT sourced when starting a new
+#   shell from X.  In that case, only .bashrc is sourced.  See also
+#   https://stackoverflow.com/a/415444/1386750
+# 
+# The following line runs your .bashrc when logging in through e.g. ssh:
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+# Set and export PATH:
+PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
+export PATH
+
