@@ -41,3 +41,18 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
+;; Uncomment this after installing the auto-complete and ac-c-headers packages:
+;; ;; Autocompletion:
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+;; (require 'auto-complete-config)
+;; (ac-config-default)  ;;-  This line caused conflicts with Python Elpy AC
+;; (setq ess-use-auto-complete 'script-only)
+;; 
+;; ;; C-headers autocompletion:
+;; (require 'ac-c-headers)
+;; (add-hook 'c-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-c-headers)
+;;             (add-to-list 'ac-sources 'ac-source-c-header-symbols t)))
+
