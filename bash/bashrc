@@ -1,4 +1,11 @@
-# .bashrc is only read by a shell that's both interactive and non-login (e.g. when
+# Basic .bashrc file for Operating systems (OPS) for Embedded-systems engineering (ESE)
+# 2018-03-26, Marc van der Sluys, 
+#   HAN University of Applied sciences, Arnhem, The Netherlands
+#   han.vandersluys.nl
+# 
+# Store (parts of) this file as .bashrc in your home directory and start a new terminal.
+#
+# .bashrc is only read by a shell that is both interactive and non-login (e.g. when
 # starting a terminal from X).  See https://stackoverflow.com/a/415444/1386750
 
 # Coloured command prompt:
@@ -20,7 +27,17 @@ shopt -s cdspell                  # Correct minor typos in directory names on cd
 shopt -s dirspell                 # Correct minor typos in dir names on tab completion
 shopt -s checkjobs                # Do not exit if shell has running/suspended jobs
 
-# Colour in man pages (when using less as a pager - see man termcap):
+# Make less (much) more powerful by allowing it to read non-ascii files:
+# You may have to install a package called lesspipe.
+LESS="$LESS -R"
+export LESSOPEN="|lesspipe %s"  # May be called lesspipe.sh, path may have to be specified
+
+# Source-code highlighting for less:
+# You will need a package called GNU source-highlight (https://www.gnu.org/software/src-highlite/)
+# export LESSOPEN="|src-hilite-lesspipe.sh %s"  # Note that this overrides lesspipe above
+alias lesscode="LESSOPEN='|src-hilite-lesspipe.sh %s' less"  # Instead, create the 'command' (alias) lesscode
+
+# Colour in man pages to make them easier to navigate (when using less as a pager - see man termcap):
 export LESS_TERMCAP_mb=$'\E[01;34m'  # Blinking -> bold blue
 export LESS_TERMCAP_md=$'\E[01;34m'  # Bold (section names, cl options) -> bold blue
 export LESS_TERMCAP_me=$'\E[0m'      # End bold/blinking
@@ -31,15 +48,15 @@ export LESS_TERMCAP_ue=$'\E[0m'      # End underline
 export GROFF_NO_SGR=1
 
 # My aliases for frequently used commands:
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -ip'
-alias ls='ls --color=auto'
-alias lls='ls -lGh'
-alias lo='exit'
-alias less='less -Si'
-alias du='du -h'
-alias ssh='ssh -Y'
+alias rm='rm -i'            # Ask before removing a file
+alias mv='mv -i'            # Ask before overwriting a file
+alias cp='cp -ip'           # Same, plus keep timestamps when copying
+alias ls='ls --color=auto'  # Colours for ls
+alias lls='ls -lGh'         # Fancy ls -l
+alias lo='exit'             # Save typing two characters (short for 'logoff')
+alias less='less -Si'       # -S: don't wrap long lines.  -i: ignore case when searching
+alias du='du -h'            # How full is your disc, in human-readable format
+alias ssh='ssh -Y'          # Enable trusted X11 (graphics) forwarding
 # etc...
 
 # Lazy cd'ing:

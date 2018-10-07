@@ -1,13 +1,13 @@
-;; Basic .emacs file for Operating systems (OPS)
+;; Basic .emacs file for Operating systems (OPS) for Embedded-systems engineering (ESE)
 ;; 2018-03-16, Marc van der Sluys, 
 ;;   HAN University of Applied sciences, Arnhem, The Netherlands
+;;   han.vandersluys.nl
+;; 
 ;; Store (parts of) this file as .emacs in your home directory and (re)start emacs
 ;; To reload this file in the current emacs instance:  M-x load-file <Enter> <Enter>
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; Added by Package.el.  This must come before configurations of installed packages.  Don't delete this line.
+;; If you don't want it, just comment it out by adding a semicolon to the start of the line.
 (package-initialize)
 
 ;; custom-set-variables was added by Custom.
